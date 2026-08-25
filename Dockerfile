@@ -26,3 +26,46 @@ RUN pip install --no-cache-dir \
     -r /opt/comfyui-baked/custom_nodes/RES4LYF/requirements.txt
 
 WORKDIR /opt/comfyui-baked
+
+
+# =========================
+# Z-IMAGE TURBO
+# =========================
+
+RUN mkdir -p \
+    /opt/comfyui-baked/models/diffusion_models \
+    /opt/comfyui-baked/models/text_encoders \
+    /opt/comfyui-baked/models/vae
+
+# Z-Image Turbo BF16
+RUN wget -O \
+    /opt/comfyui-baked/models/diffusion_models/z_image_turbo_bf16.safetensors \
+    "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/diffusion_models/z_image_turbo_bf16.safetensors"
+
+# Qwen 3 4B
+RUN wget -O \
+    /opt/comfyui-baked/models/text_encoders/qwen_3_4b.safetensors \
+    "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors"
+
+# VAE
+RUN wget -O \
+    /opt/comfyui-baked/models/vae/ae.safetensors \
+    "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/vae/ae.safetensors"
+
+    # =========================
+# FACE DETAILER MODELS
+# =========================
+
+RUN mkdir -p \
+    /opt/comfyui-baked/models/sams \
+    /opt/comfyui-baked/models/ultralytics/bbox
+
+# SAM
+RUN wget -O \
+    /opt/comfyui-baked/models/sams/sam_vit_b_01ec64.pth \
+    "https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth"
+
+# Face YOLO
+RUN wget -O \
+    /opt/comfyui-baked/models/ultralytics/bbox/face_yolov8m.pt \
+    "https://huggingface.co/Bingsu/adetailer/resolve/main/face_yolov8m.pt"
