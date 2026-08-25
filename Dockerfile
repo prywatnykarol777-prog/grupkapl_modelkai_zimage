@@ -79,3 +79,13 @@ RUN mkdir -p /opt/comfyui-baked/models/loras
 RUN wget -O \
     /opt/comfyui-baked/models/loras/RealisticSnapshot-Zimage-Turbov5.safetensors \
     "https://huggingface.co/guillekenzo/realistic-snapshot-zimage/resolve/main/RealisticSnapshot-Zimage-Turbov5.safetensors"
+
+    # =========================
+# Z-IMAGE UPSCALER
+# =========================
+
+RUN mkdir -p /opt/comfyui-baked/models/upscale_models
+
+RUN wget -O \
+    /opt/comfyui-baked/models/upscale_models/zit_upscaler.safetensors \
+    "https://huggingface.co/gravedigga/loras/resolve/main/zit_upscaler.safetensors"
