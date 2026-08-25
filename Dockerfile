@@ -69,3 +69,13 @@ RUN wget -O \
 RUN wget -O \
     /opt/comfyui-baked/models/ultralytics/bbox/face_yolov8m.pt \
     "https://huggingface.co/Bingsu/adetailer/resolve/main/face_yolov8m.pt"
+
+# =========================
+# REALISTIC SNAPSHOT LORA
+# =========================
+
+RUN mkdir -p /opt/comfyui-baked/models/loras
+
+RUN wget -O \
+    /opt/comfyui-baked/models/loras/RealisticSnapshot-Zimage-Turbov5.safetensors \
+    "https://huggingface.co/guillekenzo/realistic-snapshot-zimage/resolve/main/RealisticSnapshot-Zimage-Turbov5.safetensors"
